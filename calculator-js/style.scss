@@ -1,0 +1,164 @@
+$max-height: 915px; // modelled on the Samasung Galaxy S20 Ultra
+$max-width: 412px;
+$primary-font: "Roboto", sans-serif;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	font-family: $primary-font;
+}
+
+body {
+	margin: 100px;
+	padding: 100px;
+
+	background-color: rgb(218, 175, 83, 0.7);
+
+	// background: radial-gradient(
+	// 	rgba(79, 124, 35, 0.35),
+	// 	rgba(79, 124, 35, 0.7)
+	// );
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	max-height: $max-height;
+	max-width: $max-width;
+
+	background-color: rgba(1, 1, 1, 100%);
+
+	align-items: center; // wy won't it go in the center? If display:flex, everything goes weird
+}
+.aboveBtns {
+	height: 100px;
+	width: $max-width;
+
+	&--lrg {
+		color: white;
+		height: 100px;
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		font-family: $primary-font;
+		font-size: 40px;
+	}
+	&--preview {
+		color: rgba(90, 90, 92, 0.74);
+		height: 100px;
+		text-align: right;
+		font-family: $primary-font;
+		font-size: 30px;
+		font-weight: 100;
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+	}
+}
+
+.calcGrid {
+	display: grid;
+	justify-content: space-between;
+	align-items: baseline;
+	align-content: space-evenly;
+	height: 590px;
+	width: 390px;
+	grid-template-columns: repeat(4, 70px);
+	grid-template-rows: repeat(5, 70px);
+	gap: 0;
+
+	background-color: black;
+
+	& > button {
+		height: 90px;
+		width: 90px;
+
+		justify-content: center;
+		align-items: center;
+
+		border-radius: 50%;
+		border-style: none;
+
+		background-color: rgba(23, 23, 23, 100%);
+
+		font-size: 40px;
+		color: white;
+
+		&.operand--orange {
+			color: rgba(189, 125, 111, 100%);
+		}
+
+		&.operand--green {
+			color: rgba(80, 124, 35, 100%);
+		}
+
+		&.operand--equal {
+			background-color: rgba(80, 124, 35, 100%);
+		}
+		&:hover {
+			background-color: rgba(90, 90, 92, 0.74);
+			cursor: pointer;
+		}
+	}
+}
+
+#delete-btn {
+	height: 90px;
+	width: 90px;
+
+	justify-content: center;
+	align-items: center;
+
+	border-style: none;
+	background-color: rgba(1, 1, 1, 100%);
+
+	position: right;
+
+	&:hover {
+		background-color: rgba(90, 90, 92, 0.74);
+		cursor: pointer;
+		border-radius: 50%;
+	}
+}
+
+#delete-div {
+	display: flex;
+	justify-content: space-between;
+
+	border-bottom: 1.5px solid rgba(23, 23, 23, 100%);
+}
+
+.material-icons-outlined {
+	font-family: "Material Icons";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 40px; /* Preferred icon size */
+	display: inline-block;
+	justify-content: center;
+	align-items: baseline;
+	line-height: 2;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	color: rgba(255, 255, 255, 0.575);
+
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+
+	/* Support for IE. */
+	font-feature-settings: "liga";
+}
+
+#delete-btn-color {
+	color: rgba(80, 124, 35, 100%);
+}

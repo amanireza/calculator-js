@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 100px;
+  padding: 100px;
+  background-color: rgba(218, 175, 83, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-height: 915px;
+  max-width: 412px;
+  background-color: #010101;
+  align-items: center;
+}
+
+.aboveBtns {
+  height: 100px;
+  width: 412px;
+}
+.aboveBtns--lrg {
+  color: white;
+  height: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+}
+.aboveBtns--preview {
+  color: rgba(90, 90, 92, 0.74);
+  height: 100px;
+  text-align: right;
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 100;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.calcGrid {
+  display: grid;
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: space-evenly;
+  height: 590px;
+  width: 390px;
+  grid-template-columns: repeat(4, 70px);
+  grid-template-rows: repeat(5, 70px);
+  gap: 0;
+  background-color: black;
+}
+.calcGrid > button {
+  height: 90px;
+  width: 90px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border-style: none;
+  background-color: #171717;
+  font-size: 40px;
+  color: white;
+}
+.calcGrid > button.operand--orange {
+  color: #bd7d6f;
+}
+.calcGrid > button.operand--green {
+  color: #507c23;
+}
+.calcGrid > button.operand--equal {
+  background-color: #507c23;
+}
+.calcGrid > button:hover {
+  background-color: rgba(90, 90, 92, 0.74);
+  cursor: pointer;
+}
+
+#delete-btn {
+  height: 90px;
+  width: 90px;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+  background-color: #010101;
+  position: right;
+}
+#delete-btn:hover {
+  background-color: rgba(90, 90, 92, 0.74);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+#delete-div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1.5px solid #171717;
+}
+
+.material-icons-outlined {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 40px;
+  /* Preferred icon size */
+  display: inline-block;
+  justify-content: center;
+  align-items: baseline;
+  line-height: 2;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: rgba(255, 255, 255, 0.575);
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+#delete-btn-color {
+  color: #507c23;
+}
