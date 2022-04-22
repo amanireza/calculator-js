@@ -70,7 +70,7 @@ body {
 	grid-template-rows: repeat(5, 70px);
 	gap: 0;
 
-	background-color: black;
+	background-color: rgba(1, 1, 1, 100%);
 
 	& > button {
 		height: 90px;

@@ -1,6 +1,5 @@
 // 1. Select all buttons
-const numberBtns = document.getElementsByClassName("number");
-console.log(numberBtns); //results in a HTML list
+const numberBtns = document.getElementsByClassName("number"); //results in a HTML list
 
 // Select individual number buttons and add value  =======Is there a better way to do this?
 const number9 = document.getElementById("num9");
@@ -33,9 +32,11 @@ number1.value = 1;
 const number0 = document.getElementById("num0");
 number0.value = 0;
 
+const numberDecimal = document.getElementById("decimal");
+numberDecimal.value = ".";
+
 //Select operation buttons
 const operandBtns = document.getElementsByClassName("operand");
-console.log(operandBtns);
 
 // Select invidiual operation buttons and assign value
 const parenthesis = document.getElementById("parenthesis");
@@ -44,11 +45,11 @@ parenthesis.value = "("; //<----------------on the first click
 const percentage = document.getElementById("percentage");
 percentage.value = "%";
 
-const divide = document.getElementById("divide");
-divide.value = "/";
+const division = document.getElementById("divide");
+division.value = "/";
 
 const times = document.getElementById("multiply");
-times.value = "*";
+times.value = "x";
 
 const minus = document.getElementById("subtract");
 minus.value = "-";
@@ -56,25 +57,23 @@ minus.value = "-";
 const add = document.getElementById("add");
 add.value = "+";
 
+const neg = document.getElementById("negative");
+neg.value = "--";
+
 // Select specific operations buttons
 const deleteBtn = document.getElementById("delete-btn");
-console.log(deleteBtn);
 // deleteBtn.value <----------- create function to decrement by 1
 
 const equalBtn = document.getElementById("equal");
-console.log(equalBtn);
 equalBtn.value = "=";
 
 const clearBtn = document.getElementById("clear");
-// deleteBtn.value <----------- create function to clear Output
 
 // Select output windows
 
 const output = document.querySelector("#lrgWindow");
-console.log(output);
 
 const previewOutput = document.querySelector("#previewWindow");
-console.log(previewOutput);
 
 //---------------------------------------------------
 
@@ -97,50 +96,9 @@ const arrayOfNumberBtns = Array.from(numberBtns);
 
 const arrayOfOperandBtns = Array.from(operandBtns);
 // console.log(arrayOfOperandBtns); // check for buttons to come out as an array
-
-// const numberArray = (btnArr) => {
-// 	let firstNumber = [];
-// 	btnArr.map((numberBtn) =>
-// 		numberBtn.addEventListener("click", () => {
-// 			const num = numberBtn.value;
-// 			appendTextElement("p", num, output);
-// 			firstNumber.push(num);
-
-// 			return console.log(firstNumber);
-// 		})
-// 	);
-// };
-
-// const numberArrayStop = (btnArr) => {
-// 	let firstNumber = [];
-// 	btnArr.map((numberBtn) =>
-// 		numberBtn.removeEventListener("click", () => {
-// 			const num = numberBtn.value;
-// 			appendTextElement("p", num, output);
-// 			firstNumber.push(num);
-
-// 			return console.log(firstNumber);
-// 		})
-// 	);
-// };
-
-// const operandArray = (btnArr) => {
-// 	btnArr.map((Btn) =>
-// 		Btn.addEventListener("click", () => {
-// 			const operand = Btn.value;
-// 			appendTextElement("p", operand, output);
-
-// 			return console.log(operand);
-// 		})
-// 	);
-// };
-
-// console.log(operandArray(arrayOfOperandBtns));
-// numberArray(arrayOfNumberBtns);
+let firstNumber = [];
 
 const computeArray = (btnArrNum, btnArrOperand) => {
-	let firstNumber = [];
-
 	btnArrOperand.map((Btn) =>
 		Btn.addEventListener("click", () => {
 			const operand = Btn.value;
@@ -163,90 +121,111 @@ const computeArray = (btnArrNum, btnArrOperand) => {
 	);
 };
 
-console.log(computeArray(arrayOfNumberBtns, arrayOfOperandBtns));
+computeArray(arrayOfNumberBtns, arrayOfOperandBtns);
 
-// const computeArray = (btnArrNum) => {
-// 	btnArrNum.map((numberBtn) =>
-// 		numberBtn.addEventListener("click", () => {
-// 			const num = numberBtn.value;
-// 			return appendTextElement("p", num, output);
-// 		})
-// 	);
-// };
+// 4. All operations
 
-// THIS IS THE CODE YOU SAW BEFORE
-// let firstNumber = [];
-
-// const test = arrayOfNumberBtns.forEach((button) => {
-// 	button.addEventListener("click", () => {
-// 		const num = button.value;
-// 		appendTextElement("p", num, output);
-// 		firstNumber.num;
-// 		console.log(firstNumber);
-// 	});
-// });
-
-// test();
-
-// console.log(test);
-// console.log(firstNumber);
-//---------------------------------
-
-// console.log(computeArray(arrayOfNumberBtns));
-
-// const numberArray = (btnArr) => {
-// 	let firstNumber = [];
-// 	btnArr.map((numberBtn) =>
-// 		numberBtn.addEventListener("click", () => {
-// 			const num = numberBtn.value;
-// 			appendTextElement("p", num, output);
-// 			firstNumber.push(num);
-
-// 			return console.log(firstNumber);
-// 		})
-// 	);
-// };
-
-// 4. Input Variables
-const once = {
-	once: true,
-};
-
-const firstInput = (numberArray) => {
-	if (output.childNodes.length === 0) {
-		// will check if the Large Window is empty of textNodes
-		return numberArray(arrayOfNumberBtns);
-	} //else clear
-
-	// for (let i = 0; i < numberArray.length; i++) {
-	// 	if (operandBtns.addEventListener("click", () === true) {
-	// 		numberArrayStop;
-	// 		return console.log(numberArray.joins(""));
-	// 	}
-	// }
-};
-
-// console.log(x);
-
-// ----------------All operations
 // 1. Clear button - clears all the input in the large window and the previous window.
-//     a. return an empty array?
+
+const replace = () => (output.textContent = "");
+const clear = () => location.reload(); // find a better way to do this!
+const deleted = () => output.firstChild.toString.slice(0, -1);
 
 // 2. Parenthsis - adds a open bracket then a close one on the second click
-// 3. Percentage - (x/y)*100
-// 4. Divide - x/y
 
-// 5. Multiple - *
-const multiply = (x, y) => x * y;
+// 3. Percentage:
+const peercent = (x) => parseFloat(x) * (1 / 100);
 
-// 6. subtract - -
-const subtract = (x, y) => x - y;
+// 4. Divide:
+const divide = (x, y) => parseFloat(x) / parseFloat(y);
 
-// 7. additon - +
-const sum = (x, y) => x + y;
+// 5. Multiple:
+const multiply = (x, y) => parseFloat(x) * parseFloat(y);
 
-const basicFormula = (x, y, operand) => x(operand)(y);
-/*
-// need to get first number - x
-// breaks onces an operand button is clicked 
-*/
+// 6. subtract:
+const subtract = (x, y) => parseFloat(x) - parseFloat(y);
+
+// 7. additon:
+const sum = (x, y) => parseFloat(x) + parseFloat(y);
+
+// 8. negative:
+const negative = (x) => parseFloat(x) * -1;
+
+// 5. Calculate
+
+const compute = () => {
+	switch (true) {
+		case firstNumber.includes("+"):
+			replace(),
+				appendTextElement(
+					"p",
+					sum(
+						firstNumber.join("").split("+")[0],
+						firstNumber.join("").split("+")[1]
+					),
+					output
+				);
+			break;
+		case firstNumber.includes("-"):
+			replace(),
+				appendTextElement(
+					"p",
+					subtract(
+						firstNumber.join("").split("-")[0],
+						firstNumber.join("").split("-")[1]
+					),
+					output
+				);
+			break;
+		case firstNumber.includes("x"):
+			replace(),
+				appendTextElement(
+					"p",
+					multiply(
+						firstNumber.join("").split("x")[0],
+						firstNumber.join("").split("x")[1]
+					),
+					output
+				);
+			break;
+		case firstNumber.includes("/"):
+			replace(),
+				appendTextElement(
+					"p",
+					divide(
+						firstNumber.join("").split("/")[0],
+						firstNumber.join("").split("/")[1]
+					),
+					output
+				);
+			break;
+		case firstNumber.includes("%"):
+			replace(),
+				appendTextElement(
+					"p",
+					divide(
+						firstNumber.join("").split("%")[0],
+						firstNumber.join("").split("%")[1]
+					),
+					output
+				);
+			break;
+		case firstNumber.includes("--"):
+			replace(),
+				appendTextElement(
+					"p",
+					negative(
+						firstNumber.join("").split("--")[0],
+						firstNumber.join("").split("--")[1]
+					),
+					output
+				);
+			break;
+	}
+};
+
+clearBtn.addEventListener("click", clear);
+
+equalBtn.addEventListener("click", compute);
+
+deleteBtn.addEventListener("click", deleted);
